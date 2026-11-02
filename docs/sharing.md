@@ -14,7 +14,16 @@ repository.
   `-- --delete` takes the talk down, `-- --logout` forgets the saved token, `-- --title "…"` names
   the talk in the person's account (default: the `<title>` of the start page), `-- --no-build`
   uploads `out/` as it is.
-- Decks are managed at `https://neoslides.dev/account`: list, delete, personal tokens.
+- `-- --list` prints every deck on the account (this project's marked `→`), `-- --whoami` the account
+  the saved token belongs to.
+- Decks are also managed at `https://neoslides.dev/account`: list, delete, personal tokens.
+
+## For the agent
+
+When the person asks to publish, update, delete or list, run the script yourself from the project
+directory and relay its output; `SKILL.md` "Sharing a talk" maps requests to commands. The one
+thing you cannot do is the sign-in: show the person the link and code the script prints, let them
+approve it in their browser, and never handle the token directly.
 - The build runs on the person's machine. Only the static files in `out/` leave it; the source and
   the prompt never do.
 
@@ -50,6 +59,7 @@ All responses are JSON; errors are `{"error": {"code", "message"}}`.
 | `POST /api/decks?title=<title>`, body: zip | `201 {slug, url, version}` |
 | `PUT /api/decks/:slug?title=<title>`, body: zip | `200 {slug, url, version}` |
 | `DELETE /api/decks/:slug` | `204` |
+| `GET /api/decks` | `200 {decks: [{slug, url, title, version, bytes, files, createdAt, updatedAt}]}` |
 | `GET /api/me` | `200 {email, name, usage: {decks, bytes}, limits: {decks, bytesPerDeck}}` |
 
 The body is `Content-Type: application/zip`: the contents of `out/`, with `index.html` at the root.

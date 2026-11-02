@@ -82,7 +82,7 @@ npm run verify    # headless walk of the whole talk; screenshots in ./verify
 npm run share   # a shareable link like https://k7f3x9q2ab.neoslides.app/
 ```
 
-**Sharing.** `npm run share` signs you in once with Google (it prints a link to open), uploads the static talk and prints an unlisted link. Re-running it updates the same link. See [docs/sharing.md](docs/sharing.md).
+**Sharing.** `npm run share` signs you in once with Google (it prints a link to open), uploads the static talk and prints an unlisted link. Re-running it updates the same link; `-- --list`, `-- --delete` and `-- --new` manage decks, and the agent runs all of these for you when asked. See [docs/sharing.md](docs/sharing.md).
 
 **Presenter keys.** In the deck: `→` / `Space` / `PageDown` next, `←` / `PageUp` back, `F` fullscreen, `Esc` to the product. In the tour: `→` / `←` and `H` to collapse the panel. Clickers work out of the box.
 

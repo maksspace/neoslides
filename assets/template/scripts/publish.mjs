@@ -3,7 +3,9 @@
 //   npm run share -- --new        always make a new link
 //   npm run share -- --title "…"  title shown in your neoslides.dev account (default: <title> of the start page)
 //   npm run share -- --no-build   upload ./out as it is
+//   npm run share -- --list        the account's decks (the one from this project is marked)
 //   npm run share -- --login      only sign in;  --logout  forget the token;  --delete  delete this deck
+//   npm run share -- --whoami     which account the saved token belongs to
 // Sign-in is a device flow: open the printed link, sign in with Google, approve. The token is saved to
 // ~/.config/neoslides/credentials.json (or set NEOSLIDES_TOKEN). NEOSLIDES_API overrides https://neoslides.dev.
 // The link is unlisted but public: anyone with it can open the talk. Everything in ./out is uploaded.
@@ -199,7 +201,30 @@ const remove = async () => {
   console.log(`✓ Deleted ${saved.url}`);
 };
 
+const list = async () => {
+  const mine = readJson(PROJECT)?.slug;
+  const result = await withAuth((token) => call(token, "GET", "/api/decks"));
+  if (!result.ok) die(`Listing failed: ${explain(result)}`);
+  const decks = result.data.decks ?? [];
+  if (!decks.length) return console.log("No decks yet. `npm run share` publishes this one.");
+  const day = (iso) => (iso ?? "").slice(0, 10);
+  for (const d of decks) {
+    const mark = d.slug === mine ? "→" : " ";
+    console.log(`${mark} ${d.url}  ${d.title || "(untitled)"}  v${d.version}  ${d.files} files  updated ${day(d.updatedAt)}`);
+  }
+  if (mine) console.log("\n→ this project's deck");
+};
+
+const whoami = async () => {
+  const result = await withAuth((token) => call(token, "GET", "/api/me"));
+  if (!result.ok) die(`Not signed in: ${explain(result)}`);
+  const { email, usage, limits } = result.data;
+  console.log(`${email} · ${usage.decks}/${limits.decks} decks · ${API}`);
+};
+
 if (flag("logout")) logout();
 else if (flag("login")) await login();
+else if (flag("whoami")) await whoami();
+else if (flag("list")) await list();
 else if (flag("delete")) await remove();
 else await publish();

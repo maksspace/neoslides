@@ -119,6 +119,30 @@ If the in-app browser pane is hidden, animations and `requestAnimationFrame` pau
 
 Report what you verified with screenshots and list what you couldn't check. Never claim an effect works without having seen it.
 
+## Sharing a talk (publish, update, delete, list)
+
+The person may ask to publish, share, update, take down or list their talks. Do it yourself with the project's share script; don't send them to a website. Everything runs from the generated project's directory.
+
+| They ask | You run | Then |
+| --- | --- | --- |
+| "publish / share / give me a link" | `npm run share` | Paste the printed `https://<slug>.neoslides.app/` link back to them. |
+| "update it" after changes | `npm run share` | Same link, new version. |
+| "a new link, keep the old one" | `npm run share -- --new` | |
+| "take it down / delete it" | `npm run share -- --delete` | Deletes the deck in this project's `.neoslides.json`. |
+| "what have I published?" | `npm run share -- --list` | Every deck on the account; this project's is marked `→`. |
+| "which account am I on?" | `npm run share -- --whoami` | |
+| "sign out / forget the token" | `npm run share -- --logout` | |
+
+How sign-in works, and what you must do during it:
+
+- The first run prints a sign-in link and a code and tries to open the browser. **Only the person can complete it** (Google sign-in in their browser). Run the command so you can read its output while it waits (it polls for up to 15 minutes), show them the link and the code, and tell them to approve it; then relay the result. Never ask for, paste or store the token yourself: it stays in `~/.config/neoslides/credentials.json`.
+- Later runs reuse the saved token. On `401` the script signs in again by itself.
+- In CI, or when the person wants a non-interactive run, they create a personal token at `https://neoslides.dev/account` and set `NEOSLIDES_TOKEN`.
+
+What to tell them when you hand over a link: it is unlisted but public (anyone with the link can open it, so no confidential content); re-running `npm run share` updates it; their decks are also manageable at `https://neoslides.dev/account`.
+
+Failures the script reports in plain words (fix, then re-run): the build failed; the zip is over 25 MB (compress media in `public/`); over 20 decks (delete one with `--list` + `--delete` in that project, or on the account page); rate-limited (wait the printed number of seconds). `docs/sharing.md` has the full contract if something else comes back.
+
 ## Hand-over
 
-Tell the person: how to run it (`npm run dev`), the presenter keys (template README), where to edit words (`lib/story.ts`, `lib/tour.ts`) and style (`lib/look.ts`, `app/themes.css`, `STYLE.md`), that it's a prototype with mock data, and to rehearse once end to end using the chapter menu.
+Tell the person: how to run it (`npm run dev`), the presenter keys (template README), where to edit words (`lib/story.ts`, `lib/tour.ts`) and style (`lib/look.ts`, `app/themes.css`, `STYLE.md`), that it's a prototype with mock data, to rehearse once end to end using the chapter menu, and that `npm run share` (or asking you) turns it into a link.
