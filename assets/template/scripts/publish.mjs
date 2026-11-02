@@ -1,4 +1,4 @@
-// Publishes the talk to a shareable link on neoslides.app. Contract: docs/publish-api.md in the skill.
+// Publishes the talk to a shareable link on neoslides.app. What it does and expects: docs/sharing.md in the skill.
 //   npm run share                 build, upload, print the link (same link on every re-publish)
 //   npm run share -- --new        always make a new link
 //   npm run share -- --title "…"  title shown in your neoslides.dev account (default: <title> of the start page)

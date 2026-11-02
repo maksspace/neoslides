@@ -24,7 +24,7 @@ neoslides turns a product idea into a clickable Next.js prototype plus an animat
 ### Scripts
 
 - **`npm run verify`:** a headless walk of the static build: every deck, every tour step (with reloads), reduced motion and phone width, with mid-animation screenshots.
-- **`npm run publish`:** sign in with Google (device flow), then upload the talk to an unlisted link on `*.neoslides.app`. The contract is in `docs/publish-api.md`.
+- **`npm run publish`:** sign in with Google (device flow), then upload the talk to an unlisted link on `*.neoslides.app`. What the script does is in `docs/sharing.md`.
 
 ### Skill
 
