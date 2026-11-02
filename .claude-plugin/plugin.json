@@ -1,0 +1,11 @@
+{
+  "name": "neo-slides",
+  "version": "0.1.0",
+  "description": "Turn a product idea into a clickable Next.js prototype plus an animated in-browser talk with a live guided tour, in any visual style (including one copied from a link or screenshot).",
+  "author": { "name": "Maksim Smagin", "url": "https://github.com/maksspace" },
+  "homepage": "https://github.com/maksspace/neo-slides",
+  "repository": "https://github.com/maksspace/neo-slides",
+  "license": "MIT",
+  "keywords": ["presentation", "slides", "pitch", "demo", "prototype", "nextjs", "animation"],
+  "skills": ["./"]
+}

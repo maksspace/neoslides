@@ -1,0 +1,81 @@
+/* Presenter guide. Always dark so it reads as "presenter layer", not part of the product. */
+
+.spotlight {
+  position: fixed;
+  z-index: 4000;
+  border-radius: calc(var(--radius) * 1.4);
+  pointer-events: none;
+  box-shadow: 0 0 0 2px var(--primary), 0 0 0 7px color-mix(in oklch, var(--primary) 22%, transparent), 0 0 0 9999px rgba(10, 14, 22, .28);
+  transition: top .45s cubic-bezier(.2, .8, .2, 1), left .45s cubic-bezier(.2, .8, .2, 1), width .45s cubic-bezier(.2, .8, .2, 1), height .45s cubic-bezier(.2, .8, .2, 1);
+}
+.spotlight::after { content: ''; position: absolute; inset: -2px; border-radius: inherit; border: 2px solid var(--primary); animation: spotlight-pulse 1.8s ease-out infinite; }
+@keyframes spotlight-pulse {
+  from { opacity: .9; transform: scale(1); }
+  to { opacity: 0; transform: scale(1.04); }
+}
+
+.guide {
+  position: fixed;
+  z-index: 4001;
+  right: 24px;
+  bottom: 24px;
+  width: min(440px, calc(100vw - 32px));
+  box-sizing: border-box;
+  padding: 16px 18px 14px;
+  border-radius: 16px;
+  background: rgba(17, 21, 29, .96);
+  color: #eef2f8;
+  box-shadow: 0 24px 60px rgba(8, 12, 20, .35), 0 0 0 1px rgba(255, 255, 255, .06);
+  backdrop-filter: blur(10px);
+  font-size: 13px;
+  animation: guide-in .4s cubic-bezier(.2, .8, .2, 1);
+}
+.guide[data-side="left"], .guide-pill[data-side="left"] { right: auto; left: 24px; }
+@keyframes guide-in {
+  from { opacity: 0; transform: translateY(16px); }
+}
+.guide button { font: inherit; cursor: pointer; }
+.guide__header { display: flex; align-items: center; gap: 8px; }
+.guide__chapter { display: flex; align-items: center; gap: 8px; min-width: 0; padding: 4px 8px 4px 4px; border: 0; border-radius: 8px; background: rgba(255, 255, 255, .07); color: #b9c4d4; font-size: 11px !important; font-weight: 600; letter-spacing: .3px; text-transform: uppercase; }
+.guide__chapter:hover { background: rgba(255, 255, 255, .12); }
+.guide__chapter-number { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 6px; background: var(--primary); color: var(--primary-foreground); font-size: 11px; }
+.guide__caret { opacity: .6; }
+.guide__counter { margin-left: auto; color: #7f8ba0; font-family: var(--app-font-mono); font-size: 11px; }
+.guide__icon { width: 26px; height: 26px; border: 0; border-radius: 7px; background: transparent; color: #8d99ad; font-size: 16px !important; }
+.guide__icon:hover { background: rgba(255, 255, 255, .08); color: #fff; }
+.guide__chapters { display: flex; flex-direction: column; gap: 2px; margin-top: 10px; padding: 6px; border-radius: 10px; background: rgba(255, 255, 255, .05); }
+.guide__chapters button { display: flex; align-items: center; gap: 10px; padding: 7px 8px; border: 0; border-radius: 7px; background: transparent; color: #d4dbe6; text-align: left; }
+.guide__chapters button span { width: 18px; color: #7f8ba0; font-family: var(--app-font-mono); font-size: 11px; text-align: center; }
+.guide__chapters button:hover, .guide__chapters button[data-active] { background: rgba(255, 255, 255, .1); color: #fff; }
+.guide__body { padding: 12px 2px 4px; animation: guide-step .25s ease-out; }
+@keyframes guide-step {
+  from { opacity: 0; transform: translateX(10px); }
+}
+.guide__body h2 { margin: 0 0 8px; color: #fff; font-size: 18px; line-height: 1.3; letter-spacing: -.2px; font-weight: 650; }
+.guide__body p { margin: 0; color: #c3ccda; line-height: 1.6; }
+.guide__hint { display: flex; flex-direction: column; gap: 3px; margin-top: 12px !important; padding: 9px 11px; border-left: 2px solid var(--primary); border-radius: 0 8px 8px 0; background: rgba(255, 255, 255, .06); color: #cfd8e6 !important; font-size: 12px; }
+.guide__hint span { color: #9aa8bd; font-size: 10px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; }
+.guide__footer { margin-top: 14px; }
+.guide__progress { display: flex; gap: 3px; margin-bottom: 12px; }
+.guide__progress i { flex: 1; height: 3px; border-radius: 2px; background: rgba(255, 255, 255, .1); transition: background .3s; }
+.guide__progress i[data-boundary] { margin-left: 5px; }
+.guide__progress i[data-done] { background: color-mix(in oklch, var(--primary) 55%, transparent); }
+.guide__progress i[data-current] { background: var(--primary); }
+.guide__actions { display: flex; justify-content: space-between; gap: 8px; }
+.guide__button { padding: 8px 14px; border: 0; border-radius: 9px; background: rgba(255, 255, 255, .08); color: #dfe5ee; font-weight: 600; }
+.guide__button:hover { background: rgba(255, 255, 255, .14); }
+.guide__button--primary { background: var(--primary); color: var(--primary-foreground); }
+.guide__button--primary:hover { filter: brightness(1.1); }
+
+.guide-pill { position: fixed; z-index: 4001; right: 24px; bottom: 24px; display: flex; align-items: center; gap: 2px; padding: 4px; border-radius: 999px; background: rgba(17, 21, 29, .94); box-shadow: 0 12px 30px rgba(8, 12, 20, .3); }
+.guide-pill button { padding: 7px 10px; border: 0; border-radius: 999px; background: transparent; color: #dfe5ee; font: inherit; font-size: 12px; cursor: pointer; }
+.guide-pill button:hover { background: rgba(255, 255, 255, .1); }
+.guide-pill__label { display: flex; align-items: center; gap: 8px; }
+.guide-pill__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 25%, transparent); }
+
+@media (max-width: 600px) {
+  .guide, .guide-pill, .guide[data-side="left"], .guide-pill[data-side="left"] { right: 16px; left: auto; bottom: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spotlight, .spotlight::after, .guide, .guide__body { transition: none; animation: none; }
+}

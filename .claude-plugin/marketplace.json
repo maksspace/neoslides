@@ -1,0 +1,16 @@
+{
+  "name": "neo-slides",
+  "description": "neo-slides: product ideas into a clickable prototype plus an animated live talk.",
+  "owner": {
+    "name": "Maksim Smagin",
+    "url": "https://github.com/maksspace"
+  },
+  "plugins": [
+    {
+      "name": "neo-slides",
+      "source": "./",
+      "description": "Turn a product idea into a clickable Next.js prototype plus an animated in-browser talk with a live guided tour.",
+      "category": "productivity"
+    }
+  ]
+}

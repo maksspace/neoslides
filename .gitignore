@@ -1,0 +1,8 @@
+.DS_Store
+.idea/
+.vscode/
+node_modules/
+.next/
+verify/
+*.tsbuildinfo
+next-env.d.ts

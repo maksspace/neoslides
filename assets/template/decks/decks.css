@@ -1,0 +1,87 @@
+/* Scene-specific layout for the example talk and the effects preview. Replace with your own scenes' styles. */
+
+/* Example talk (paper stage, editorial theme). */
+.meet { gap: 26px; }
+.meet .scene__title { font-size: clamp(44px, 6.4vw, 92px); }
+.meet__hint { color: var(--deck-muted); font-family: var(--app-font-mono); font-size: 12px; }
+
+.paper { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); align-items: center; gap: 64px; }
+.paper__copy { display: flex; flex-direction: column; gap: 24px; }
+.paper__after { color: var(--deck-accent); font-weight: 600; }
+/* A sheet of paper: the thing that burns. */
+.form-sheet { padding: 40px 40px 32px; border: 1px solid var(--border); border-radius: 2px; background: oklch(0.995 0.006 90); color: oklch(0.25 0.01 60); box-shadow: 0 1px 2px rgba(0, 0, 0, .06), 0 24px 48px -16px rgba(60, 40, 20, .25); font-family: var(--app-font-heading); transform: rotate(-1.2deg); }
+.form-sheet h2 { margin: 18px 0 14px; font-size: 26px; text-align: center; letter-spacing: 2px; text-transform: uppercase; }
+.form-sheet__to { margin: 0 0 0 auto; max-width: 220px; font-size: 13px; line-height: 1.5; text-align: right; white-space: pre-line; }
+.form-sheet__body { margin: 0 0 22px; font-size: 15px; line-height: 1.7; text-indent: 2em; }
+.form-sheet__field { display: flex; align-items: flex-end; gap: 10px; margin: 12px 0 0; font-size: 12px; color: oklch(0.45 0.01 60); }
+.form-sheet__field span { white-space: nowrap; }
+.form-sheet__field i { flex: 1; border-bottom: 1px solid oklch(0.6 0.01 60); }
+
+.together { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 460px); align-items: center; gap: 56px; }
+.together__copy { display: flex; flex-direction: column; gap: 24px; }
+.together__channel { margin: 0; color: var(--deck-accent); font-family: var(--app-font-mono); font-size: 16px; }
+
+.finale { gap: 20px; }
+.finale .scene__title { font-size: clamp(64px, 9vw, 128px); }
+.finale__mark { display: grid; place-items: center; width: 72px; height: 72px; border-radius: 50%; border: 1.5px solid var(--deck-ink); font-family: var(--app-font-heading); font-size: 34px; }
+.finale__actions { display: flex; gap: 12px; margin-top: 12px; }
+
+/* Effects preview (space stage). */
+.bang { gap: 22px; }
+.bang .reveal { position: relative; z-index: 1; }
+.bang__orbit { position: absolute; left: 50%; top: 50%; width: 0; height: 0; }
+.bang__chip { position: absolute; padding: 7px 14px; border: 1px solid color-mix(in oklch, var(--deck-accent) 35%, transparent); border-radius: 999px; background: color-mix(in oklch, var(--deck-accent) 15%, transparent); color: color-mix(in oklch, var(--deck-accent) 50%, white); font-size: 13px; font-weight: 600; white-space: nowrap; transform: translate(-50%, -50%) scale(.1); opacity: 0; animation: fly-out 1.8s cubic-bezier(.12, .9, .2, 1) var(--d) forwards, drift 6s ease-in-out calc(var(--d) + 1.8s + var(--f)) infinite alternate; }
+/* Chips leave the blast white-hot and cool down to their resting glow. */
+@keyframes fly-out {
+  0% { opacity: 1; color: white; background: color-mix(in oklch, var(--deck-accent) 60%, white); box-shadow: 0 0 40px 14px color-mix(in oklch, var(--deck-accent) 80%, white); }
+  45% { opacity: 1; }
+  100% { opacity: .65; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1); box-shadow: 0 0 18px color-mix(in oklch, var(--deck-accent) 25%, transparent); }
+}
+@keyframes drift {
+  from { opacity: .65; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1); }
+  to { opacity: .8; transform: translate(calc(-50% + var(--dx) * 1.03), calc(-50% + var(--dy) * 1.03 - 8px)) scale(1.03); }
+}
+/* The title condenses out of the flash. */
+.bang .scene__title.reveal { animation-name: condense; animation-duration: 1.8s; animation-timing-function: cubic-bezier(.12, .9, .2, 1); }
+@keyframes condense {
+  from { opacity: 0; transform: scale(1.35); filter: blur(22px); letter-spacing: .12em; }
+}
+
+.gallery-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); align-items: center; gap: 56px; }
+.gallery-split__copy { display: flex; flex-direction: column; gap: 24px; }
+.gallery-old { display: flex; flex-direction: column; gap: 10px; min-height: 260px; background: color-mix(in oklch, var(--card) 92%, transparent); }
+.gallery-old strong { font-size: 20px; }
+.gallery-old p { margin: 0; color: var(--deck-muted); line-height: 1.55; }
+.gallery-collapse { gap: 20px; }
+
+@media (max-width: 1100px) {
+  .paper, .together, .gallery-split { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bang__chip { animation: none; opacity: .7; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))); }
+}
+
+/* Effects preview: helpers for the data and diagram effects. */
+.gallery-big { font-family: var(--app-font-heading); font-size: clamp(72px, 12vw, 168px); font-weight: var(--deck-title-weight, 750); letter-spacing: -3px; line-height: 1; color: var(--deck-accent); }
+.gallery-wide { width: 100%; display: flex; justify-content: center; }
+.gallery-card { display: flex; flex-direction: column; gap: 8px; min-height: 200px; background: var(--card); color: var(--card-foreground); }
+.gallery-card strong { font-size: 20px; }
+.gallery-card p { margin: 0; color: var(--muted-foreground); }
+.gallery-card[data-tone="bad"] { border-left: 4px solid var(--deck-bad); }
+.gallery-card[data-tone="good"] { border-left: 4px solid var(--deck-good); }
+.gallery-index { gap: 22px; }
+.gallery-index__groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.gallery-index__group { display: flex; flex-direction: column; gap: 6px; padding: 18px; border: 1px solid var(--deck-line); border-radius: calc(var(--radius) * 1.6); background: var(--deck-card); }
+.gallery-index__group strong { font-size: 18px; }
+.gallery-index__group small { color: var(--deck-muted); font-size: 13px; }
+.gallery-index__group div { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.gallery-index__group button, .gallery-index__switch { padding: 5px 10px; border: 1px solid var(--deck-line); border-radius: 999px; background: transparent; color: var(--deck-ink); font: inherit; font-size: 13px; cursor: pointer; }
+.gallery-index__group button:hover, .gallery-index__switch:hover { border-color: var(--deck-accent); color: var(--deck-accent); }
+.gallery-mock { gap: 14px; min-height: 0; }
+.gallery-mock__field, .gallery-mock__button { display: flex; align-items: center; height: 42px; padding: 0 14px; border: 1px solid var(--border); border-radius: var(--radius); color: var(--muted-foreground); }
+.gallery-mock__field[data-filled] { color: var(--card-foreground); }
+.gallery-mock__button { justify-content: center; background: var(--primary); color: var(--primary-foreground); font-weight: 700; }
+.gallery-mock__button[data-done] { background: var(--deck-good); color: white; }
+@media (max-width: 1100px) {
+  .gallery-index__groups { grid-template-columns: 1fr; }
+}
