@@ -1,13 +1,13 @@
 # Quality bar
 
-The skill grew out of one talk: a demo of an internal developer tool, built as a clickable prototype with an animated intro, a live tour of the real screens, and a vision/finale part. People remembered it, but **not because of its specific scenes or its space theme**. Copy what made it work, never its content, structure or look.
+The skill grew out of one talk: a product demo built as a clickable prototype with an animated intro, a live tour of the real screens, and a vision/finale part. People remembered it, but **not because of its specific scenes or its space theme**. Copy what made it work, never its content, structure or look.
 
 ## What made it work
 
 1. **The product itself, live, instead of screenshots.** Half the talk was clicking through a working prototype with real-feeling data. Slides described the problem; the product answered it.
 2. **One idea per scene.** Each scene could be retold in one sentence. Nothing on screen competed with that sentence.
 3. **Motion that explained.** Every animation replaced a paragraph: a queue piling up in a narrow neck *was* the bottleneck argument; a chat burning *was* "we're done with this way of working". No motion was there for decoration.
-4. **Honest about the pain and about our own part in it.** The "why" scene named the root causes, including the team's own past choices. That bought trust for the turn.
+4. **Honest about the pain and about your own part in it.** The "why" scene named the root causes, including the presenters' own past choices. That bought trust for the turn.
 5. **The presenter controlled time.** Big changes happened on a click, so the speaker could pause, take questions, go back. Clickers worked.
 6. **A seamless hand-off between story and product.** The last story scene opened the product on the right screen as the right persona; the last tour step opened the vision. Every tour step could be opened directly, so a reload or a question never broke the flow.
 7. **Honest prototype.** A visible "prototype" banner, mock data, no claims of integration. Nobody felt misled when they learned it was a POC.
