@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- **`npm run share` replaces `npm run publish`.** A script named `publish` was one keystroke from `npm publish`, and npm also runs a script by that name as a lifecycle hook after publishing to the registry. The flags are unchanged: `npm run share -- --new`, `-- --delete`, `-- --logout`.
+
 ## 0.1.0: first public release
 
 neoslides turns a product idea into a clickable Next.js prototype plus an animated in-browser talk with a live guided tour over it, in whatever visual style you ask for.

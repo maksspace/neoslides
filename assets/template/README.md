@@ -10,12 +10,12 @@ npm run dev        # http://localhost:3000
 npm run build      # must pass before the talk; writes the static talk to ./out
 npm start          # serves ./out exactly as it will be published
 npm run verify     # headless walk of the whole talk; screenshots in ./verify
-npm run publish    # sign in once with Google, upload, print a shareable link
+npm run share    # sign in once with Google, upload, print a shareable link
 ```
 
 ## Sharing a link
 
-`npm run publish` builds the talk and uploads it to a random, unlisted link like `https://k7f3x9q2ab.neoslides.app/`. The first time it prints a sign-in link: open it, sign in with Google and approve the code. Re-running it updates the same link (kept in `.neoslides.json`); `-- --new` makes a new one, `-- --delete` takes it down, `-- --logout` forgets the token. Anyone with the link can open the talk, so don't publish anything confidential.
+`npm run share` builds the talk and uploads it to a random, unlisted link like `https://k7f3x9q2ab.neoslides.app/`. The first time it prints a sign-in link: open it, sign in with Google and approve the code. Re-running it updates the same link (kept in `.neoslides.json`); `-- --new` makes a new one, `-- --delete` takes it down, `-- --logout` forgets the token. Anyone with the link can open the talk, so don't publish anything confidential.
 
 ## Routes
 

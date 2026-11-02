@@ -1,6 +1,6 @@
 # Publishing API
 
-How a generated project gets from `npm run publish` to a shareable link. This document is the contract between the template's `scripts/publish.mjs` (in this repository) and the backend (`neoslides.dev` + the deck host on `*.neoslides.app`, in its own repository).
+How a generated project gets from `npm run share` to a shareable link. This document is the contract between the template's `scripts/publish.mjs` (in this repository) and the backend (`neoslides.dev` + the deck host on `*.neoslides.app`, in its own repository).
 
 ## Domains
 
@@ -103,11 +103,11 @@ create index decks_user on decks(user_id);
 
 ## The project side
 
-`npm run publish` in a generated project:
+`npm run share` in a generated project:
 
 1. Signs in if needed (device flow above).
 2. Builds the static export into `out/` (`NEOSLIDES_EXPORT=1 next build`).
 3. Zips `out/` and uploads it: `PUT` to the slug in `.neoslides.json` if there is one, otherwise `POST`.
 4. Writes `{api, slug, url}` to `.neoslides.json` and prints the link. A `403`/`404` on `PUT` (deleted deck, another account) falls back to `POST`.
 
-`npm run publish -- --new` always creates a new deck; `-- --delete` deletes the one in `.neoslides.json`; `-- --logout` forgets the token. `NEOSLIDES_API` overrides `https://neoslides.dev` (for a local backend).
+`npm run share -- --new` always creates a new deck; `-- --delete` deletes the one in `.neoslides.json`; `-- --logout` forgets the token. `NEOSLIDES_API` overrides `https://neoslides.dev` (for a local backend).

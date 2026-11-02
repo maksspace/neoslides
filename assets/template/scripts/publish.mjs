@@ -1,9 +1,9 @@
 // Publishes the talk to a shareable link on neoslides.app. Contract: docs/publish-api.md in the skill.
-//   npm run publish                 build, upload, print the link (same link on every re-publish)
-//   npm run publish -- --new        always make a new link
-//   npm run publish -- --title "…"  title shown in your neoslides.dev account (default: <title> of the start page)
-//   npm run publish -- --no-build   upload ./out as it is
-//   npm run publish -- --login      only sign in;  --logout  forget the token;  --delete  delete this deck
+//   npm run share                 build, upload, print the link (same link on every re-publish)
+//   npm run share -- --new        always make a new link
+//   npm run share -- --title "…"  title shown in your neoslides.dev account (default: <title> of the start page)
+//   npm run share -- --no-build   upload ./out as it is
+//   npm run share -- --login      only sign in;  --logout  forget the token;  --delete  delete this deck
 // Sign-in is a device flow: open the printed link, sign in with Google, approve. The token is saved to
 // ~/.config/neoslides/credentials.json (or set NEOSLIDES_TOKEN). NEOSLIDES_API overrides https://neoslides.dev.
 // The link is unlisted but public: anyone with it can open the talk. Everything in ./out is uploaded.
@@ -187,7 +187,7 @@ const publish = async () => {
   const { slug, url, version } = result.data;
   writeFileSync(PROJECT, `${JSON.stringify({ api: API, slug, url }, null, 2)}\n`);
   console.log(`\n✓ Published${version > 1 ? ` (version ${version})` : ""}: ${url}\n`);
-  console.log("Anyone with the link can open it. Re-run `npm run publish` to update the same link.");
+  console.log("Anyone with the link can open it. Re-run `npm run share` to update the same link.");
 };
 
 const remove = async () => {

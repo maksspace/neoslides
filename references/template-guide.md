@@ -1,6 +1,6 @@
 # Template guide
 
-`assets/template/` is a runnable Next.js 16 app (App Router, TypeScript, Tailwind v4, shadcn/ui base-nova). It builds as a **static export** (`output: "export"`): `npm run build` writes plain files to `out/`, `npm start` serves them, and `npm run publish` uploads them to a link on neoslides.app. So no server code: no route handlers, server actions, `cookies()`/`headers()`, middleware or `next/image` optimisation; all state is client-side. Anything reading search params on the client renders inside `<Suspense>` (see `app/intro/page.tsx`).
+`assets/template/` is a runnable Next.js 16 app (App Router, TypeScript, Tailwind v4, shadcn/ui base-nova). It builds as a **static export** (`output: "export"`): `npm run build` writes plain files to `out/`, `npm start` serves them, and `npm run share` uploads them to a link on neoslides.app. So no server code: no route handlers, server actions, `cookies()`/`headers()`, middleware or `next/image` optimisation; all state is client-side. Anything reading search params on the client renders inside `<Suspense>` (see `app/intro/page.tsx`).
 
 **Engine** (keep, extend): `components/deck/*`, `components/tour/*`, `components/theme-switch.tsx`, `lib/themes.ts`, `app/deck.css`, `app/themes.css`.
 **Example content** (replace): `lib/story.ts`, `lib/tour.ts`, `lib/demo-store.ts`, `lib/look.ts` values, `decks/*`, `app/product/**`, `components/leave-status.tsx`.
@@ -39,7 +39,7 @@ components/
 scripts/
   verify.mjs            npm run verify: headless walk of decks, tour, reduced motion, phone; ./verify
   serve.mjs             npm start: serves ./out the way the deck host does
-  publish.mjs           npm run publish: sign in, build, upload ./out, print the link (.neoslides.json keeps it)
+  publish.mjs           npm run share: sign in, build, upload ./out, print the link (.neoslides.json keeps it)
 decks/
   intro-deck.tsx, vision-deck.tsx   example talk (user-journey arc)
   effects-deck.tsx      effects gallery: index + one demo per registry entry
