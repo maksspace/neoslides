@@ -51,8 +51,7 @@ export const useDeck = (beats: number[], options: { startAtEnd?: boolean; onFini
       if ((key === " " || key === "enter") && target?.closest("button")) return;
       if (["arrowright", "pagedown", " ", "enter"].includes(key)) next();
       else if (["arrowleft", "pageup", "backspace"].includes(key)) previous();
-      // "а" is F on the Russian layout.
-      else if (key === "f" || key === "а") toggleFullscreen();
+      else if (key === "f") toggleFullscreen();
       else if (key === "escape" && !document.fullscreenElement) exit();
       else return;
       event.preventDefault();

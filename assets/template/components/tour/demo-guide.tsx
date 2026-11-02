@@ -65,8 +65,7 @@ export function DemoGuide() {
       if (target?.closest("input, textarea, select, [contenteditable='true'], [role='combobox'], [role='listbox']")) return;
       if (event.key === "ArrowRight" || event.key === "PageDown") tour.next();
       else if (event.key === "ArrowLeft" || event.key === "PageUp") tour.previous();
-      // "р" is H on the Russian layout.
-      else if (event.key.toLowerCase() === "h" || event.key.toLowerCase() === "р") tour.toggleCollapsed();
+      else if (event.key.toLowerCase() === "h") tour.toggleCollapsed();
       else return;
       event.preventDefault();
     };
