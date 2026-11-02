@@ -1,6 +1,6 @@
 # Motion method: find the metaphor, then build it
 
-Animation in a neo-slides talk is an argument, not decoration. The test: **if you removed the animation, would the presenter need an extra sentence to explain the scene?** If not, remove it.
+Animation in a neoslides talk is an argument, not decoration. The test: **if you removed the animation, would the presenter need an extra sentence to explain the scene?** If not, remove it.
 
 ## 1. Find the metaphor for THIS idea
 

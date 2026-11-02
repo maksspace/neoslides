@@ -1,9 +1,9 @@
 ---
-name: neo-slides
-description: Turn a product idea into (1) a clickable Next.js demo prototype and (2) an animated, interactive in-browser presentation with a guided live tour over that prototype, instead of a slide deck, in whatever visual style the person asks for (including copying the style of a site, screenshot or brand they reference). Use when someone wants to pitch, present, demo or "make slides" for a product idea, internal tool or feature, wants a demo POC plus presentation, or mentions neo-slides.
+name: neoslides
+description: Turn a product idea into (1) a clickable Next.js demo prototype and (2) an animated, interactive in-browser presentation with a guided live tour over that prototype, instead of a slide deck, in whatever visual style the person asks for (including copying the style of a site, screenshot or brand they reference). Use when someone wants to pitch, present, demo or "make slides" for a product idea, internal tool or feature, wants a demo POC plus presentation, or mentions neoslides.
 ---
 
-# neo-slides
+# neoslides
 
 You make two things from one idea, in one Next.js app:
 
@@ -82,7 +82,7 @@ For visuals, follow `references/visuals.md`: pick the form from the information 
 
 ### 4. Scaffold
 
-Copy `assets/template/` from this skill's own folder (where this SKILL.md lives: `~/.claude/skills/neo-slides/` for a manual install, the plugin cache for a plugin install):
+Copy `assets/template/` from this skill's own folder (where this SKILL.md lives: `~/.claude/skills/neoslides/` for a manual install, the plugin cache for a plugin install):
 
 ```bash
 cp -R <skill-dir>/assets/template <target-dir>

@@ -5,13 +5,13 @@ Thanks for helping! The most useful contributions are new **effects**, new **sta
 ## Setup
 
 ```bash
-git clone https://github.com/maksspace/neo-slides
-cd neo-slides/assets/template
+git clone https://github.com/maksspace/neoslides
+cd neoslides/assets/template
 npm install
 npm run dev            # http://localhost:3000, /effects for the gallery
 ```
 
-To try your changes as a skill, symlink the clone: `ln -s "$PWD/../.." ~/.claude/skills/neo-slides` (run from `assets/template`).
+To try your changes as a skill, symlink the clone: `ln -s "$PWD/../.." ~/.claude/skills/neoslides` (run from `assets/template`).
 
 ## Before you open a PR
 

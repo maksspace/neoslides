@@ -1,4 +1,4 @@
-# neo-slides
+# neoslides
 
 **A Claude Code skill that turns a product idea into a talk people remember:** a clickable prototype of the product, plus an animated in-browser presentation that hands over to a live guided tour of that prototype and back.
 
@@ -34,14 +34,14 @@ Each effect is driven by a prop, so the presenter controls time. Each one also h
 
 ## Install
 
-**Ask Claude to do it.** Paste this into Claude Code: *"Install the neo-slides skill from github.com/maksspace/neo-slides"*. Claude follows the steps below.
+**Ask Claude to do it.** Paste this into Claude Code: *"Install the neoslides skill from github.com/maksspace/neoslides"*. Claude follows the steps below.
 
 ### For AI agents
 
-If you are an AI agent asked to install neo-slides:
+If you are an AI agent asked to install neoslides:
 
 1. Check `node --version` is 20 or newer; if not, tell the person to install Node.js 20+ first.
-2. Run `git clone https://github.com/maksspace/neo-slides ~/.claude/skills/neo-slides`. If that folder already exists, run `git -C ~/.claude/skills/neo-slides pull` instead.
+2. Run `git clone https://github.com/maksspace/neoslides ~/.claude/skills/neoslides`. If that folder already exists, run `git -C ~/.claude/skills/neoslides pull` instead.
 3. Tell the person it's installed and that a new Claude Code session may be needed for the skill to show up. Then ask what they want to present, or start right away if they already said.
 
 Don't use the `/plugin` commands below yourself: they are typed by the person.
@@ -51,14 +51,14 @@ Don't use the `/plugin` commands below yourself: they are typed by the person.
 **As a plugin** (Claude Code):
 
 ```
-/plugin marketplace add maksspace/neo-slides
-/plugin install neo-slides@neo-slides
+/plugin marketplace add maksspace/neoslides
+/plugin install neoslides@neoslides
 ```
 
 **Or as a plain skill:**
 
 ```bash
-git clone https://github.com/maksspace/neo-slides ~/.claude/skills/neo-slides
+git clone https://github.com/maksspace/neoslides ~/.claude/skills/neoslides
 ```
 
 You'll need Node.js 20+ to build the generated project. `npm run verify` needs a Chromium. It uses `CHROME_PATH`, a Playwright browser (`npx playwright install chromium`) or an installed Chrome.
@@ -71,7 +71,7 @@ Just ask Claude Code, in any language:
 
 > I want to pitch an internal expense-approval bot to the CFO. 10 minutes, with a live demo.
 
-> neo-slides: a launch talk for our analytics dashboard, in the style of this screenshot.
+> neoslides: a launch talk for our analytics dashboard, in the style of this screenshot.
 
 Then run the project it creates:
 

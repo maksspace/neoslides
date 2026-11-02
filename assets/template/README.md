@@ -1,7 +1,7 @@
-# neo-slides demo
+# neoslides demo
 
 A clickable product prototype plus an in-browser presentation with a live guided tour over it.
-Generated from the `neo-slides` skill template. The example story and style are placeholders: each talk gets its own. **Prototype only:** all data is mock state in
+Generated from the `neoslides` skill template. The example story and style are placeholders: each talk gets its own. **Prototype only:** all data is mock state in
 this browser's localStorage; nothing talks to real systems.
 
 ```bash
